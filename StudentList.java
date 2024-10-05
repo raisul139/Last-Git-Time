@@ -5,13 +5,18 @@ import java.util.*;
 public class StudentList {
     public static void main(String[] args) {
 
-//     Check arguments step-21
+//     Check arguments
+        if(args == null || args.length != 1) {
+            System.out.println("Usage: (a | r | c | +WORD | ?WORD)");
+            return;
+        }
+
         if (args[0].equals("a")) {
             System.out.println("Loading data ...");
             try {
                 BufferedReader s = new BufferedReader(
-                                   new InputStreamReader(
-                                   new FileInputStream("students.txt")));
+                        new InputStreamReader(
+                                new FileInputStream("students.txt")));
                 String r = s.readLine();
                 String i[] = r.split(",");
                 for (String j : i) {
